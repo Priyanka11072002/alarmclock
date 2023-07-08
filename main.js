@@ -35,10 +35,10 @@ function setCurrentTime(){
     min = currMin < 10 ? '0'+ currMin : currMin
     sec = currSec < 10 ? '0' + currSec : currSec
 
-    //it is showing time
+    
  time.innerHTML = `${hours>12?hours-12:hours}:${min} :${sec}${meredian}`
 
- //it is showing date
+
  currentDate.innerHTML = `${dayNames[day]} - ${monthNames[month]} ${monthDate} . ${year}`
 }
 
@@ -56,7 +56,7 @@ function getTimeDiff(userTime){
 }
 
 function callAlarm(value){
-    // Initialize alarm sound
+   
 alarmAudio.src = "https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3";
 alarmAudio.load();
   setTimeout(()=>{
@@ -64,18 +64,17 @@ alarmAudio.load();
   },value)
 }
 
-//clear alarm
+
 function handleClear(){
     alarmAudio.src = " ";
     alarmTime.innerHTML =" "
 }
-
 form.addEventListener("submit",(e)=>{
 e.preventDefault()
-console.log(getTime.value,"userValue")
+
  const leftSecond = getTimeDiff(getTime.value.split(":"))
 
- console.log(getTimeDiff(getTime.value.split(":")),"TimeGivenByFunction")
+ 
   callAlarm(leftSecond)
   document.forms[0].reset();
 })
